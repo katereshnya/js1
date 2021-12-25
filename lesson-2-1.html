@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex.1</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        let a = 1, b = 1, c, d;
+
+        //предпрефикс происходит увеличение переменной a на еденицу
+        c = ++a;
+        alert(c); //ответ: 2
+
+        //постпрефикс сначала возвращает значение переменной b
+        d = b++;
+        alert(d); //ответ: 1
+
+        //предпрефикс происходит увеличение переменной a на еденицу (текущее значение переменной после примера 1 равно 2)
+        c = 2 + ++a;
+        alert(c); //ответ: 5
+
+        //постпрефикс сначала возвращает значение переменной b (текущее значение переменной после примера 2 равно 2)
+        d = 2 + b++;
+        alert(d); //ответ: 4
+
+        alert(a); //3
+        alert(b); //3
+    </script>
+</body>
+
+</html>
