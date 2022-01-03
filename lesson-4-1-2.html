@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex.4-1-2</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // es5
+        function es5(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        es5.prototype.edit = function (text) {
+            this.text = text;
+        }
+
+        const newes5 = new es5('Name', 'Some text', new Date());
+        console.log(newes5);
+        newes5.edit('New text');
+        console.log(newes5);
+
+
+        function AttachedPostES5(author, text, date) {
+            es5.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPostES5.prototype = Object.create(es5.prototype);
+        AttachedPostES5.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        const attachedes5 = new AttachedPostES5('AttachName', 'Attach some text', new Date());
+        console.log(attachedes5);
+        attachedes5.makeTextHighlighted();
+        attachedes5.edit('Attach new text');
+        console.log(attachedes5);
+
+
+        // es6
+        class es6 {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit(text) {
+                this.text = text;
+            }
+        }
+
+        const newes6 = new es6('Name', 'Some text', new Date());
+        console.log(newes6);
+        newes6.edit('New text');
+        console.log(newes6);
+
+
+        class AttachedPostES6 extends es6 {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+
+        const attachedes6 = new AttachedPostES6('AttachName', 'Attach some text', new Date());
+        console.log(attachedes6);
+        attachedes6.makeTextHighlighted();
+        attachedes6.edit('Attach new text');
+        console.log(attachedes6);
+    </script>
+</body>
+
+</html>
