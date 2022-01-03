@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex.4-1-1</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        //es5
+        function es5(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+        es5.prototype.make25PercentDiscountes5 = function () {
+            this.price = this.price * 0.75;
+        };
+
+        const newes5 = new es5("наименование", 100);
+        newes5.make25PercentDiscountes5();
+        console.log(newes5);
+
+
+        //es6
+        class es6 {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+            make25PercentDiscountes6() {
+                this.price = this.price * 0.75;
+            }
+        }
+
+        const newes6 = new es6("наименование", 100);
+        newes6.make25PercentDiscountes6();
+        console.log(newes6);
+    </script>
+</body>
+
+</html>

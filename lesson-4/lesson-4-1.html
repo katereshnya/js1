@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex.1</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        function СonvertNumber(x) {
+            if (!Number.isInteger(x) || x < 0 || x > 999) {
+                console.log('Число должно быть >= 0 и <=999, а также являться целым');
+                return {};
+            }
+
+            return {
+                units: x % 10,
+                tens: Math.floor(x / 10) % 10,
+                hundereds: Math.floor(x / 100),
+            };
+        }
+
+        console.log(СonvertNumber(999));
+        console.log(СonvertNumber(1000));
+    </script>
+</body>
+
+</html>
